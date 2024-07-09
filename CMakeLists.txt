@@ -14,16 +14,31 @@ endif()
 # Library
 
 if (NOT ${CMAKE_SYSTEM_NAME} STREQUAL "Generic")
+    find_package(datapack REQUIRED)
+
     add_library(dataroute SHARED
         src/serial.cpp
+        src/packet.cpp
     )
     target_include_directories(dataroute PUBLIC
         $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
         $<INSTALL_INTERFACE:include>
     )
+    target_link_libraries(dataroute PUBLIC datapack)
 
 else()
-    # TODO
+    find_package(datapack REQUIRED)
+    find_package(opencm3 REQUIRED)
+
+    add_library(dataroute STATIC
+        src/packet.cpp
+    )
+    target_include_directories(dataroute PUBLIC
+        $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
+        $<INSTALL_INTERFACE:include>
+    )
+    target_link_libraries(dataroute PUBLIC datapack opencm3)
+
 endif()
 
 # Additional targets
