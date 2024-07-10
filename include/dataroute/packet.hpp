@@ -5,6 +5,7 @@
 #include <optional>
 #include <vector>
 
+
 namespace dataroute {
 
 static constexpr std::array<std::uint8_t, 2> sync_bytes = { 0xA2, 0xB4 }; // Arbitrary

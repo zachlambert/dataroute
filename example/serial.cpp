@@ -7,7 +7,7 @@ int main() {
     port.connect("/dev/ttyACM0", 115200);
 
     while (true) {
-        auto bytes = port.read(1024);
+        auto bytes = port.read();
         std::cout << std::string_view((char*)bytes.data(), bytes.size());
     }
 }

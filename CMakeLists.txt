@@ -46,6 +46,9 @@ endif()
 if (BUILD_ADDITIONAL_TARGETS AND NOT ${CMAKE_SYSTEM_NAME} STREQUAL "Generic")
     add_executable(example_serial example/serial.cpp)
     target_link_libraries(example_serial dataroute)
+
+    add_executable(example_router example/router.cpp)
+    target_link_libraries(example_router dataroute)
 endif()
 
 

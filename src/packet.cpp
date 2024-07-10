@@ -1,5 +1,6 @@
 #include "dataroute/packet.hpp"
 #include <cstring>
+#include <cstdio>
 
 namespace dataroute {
 
